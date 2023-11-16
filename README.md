@@ -24,7 +24,14 @@ def newton_raphson(initial_guess, tolerance=1e-6, max_iterations=100):
         x = x_next
     return None  # Return None if the method doesn't converge within the specified iterations
 
-# Menggunakan metode Newton-Raphson dengan tebakan awal x=1
+a. Menggunakan metode Newton-Raphson dengan tebakan awal x=1
+result = newton_raphson(initial_guess=1)
+
+if result is not None:
+    print(f"Solusi persamaan adalah x = {result}")
+else:
+    print("Metode tidak konvergen dalam iterasi maksimum yang ditentukan.")
+b. Menggunakan metode Newton-Raphson dengan tebakan awal x=1
 result = newton_raphson(initial_guess=1)
 
 if result is not None:
@@ -38,7 +45,6 @@ Solusi persamaan adalah x = 1.3247179572447898
 
 2. Persamaan linear 2x − 4 = 8 dapat dipecahkan dengan mudah tanpa memerlukan metode numerik seperti Newton-Raphson.
 Berikut implementasi dalam Python untuk mencari persamaan ini:
-
 # Definisikan persamaan linear
 def persamaan_linear(x):
     return 2*x - 4
