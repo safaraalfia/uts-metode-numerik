@@ -25,7 +25,7 @@ x³ - x + 3 - 4 = 0
 x³ - x - 1 = 0 atau
 x³ - x = 1
 
-Solusi :
+# Solusi :
 Untuk mencari solusi dari persamaan non-linier tersebut, Anda dapat menggunakan metode iteratif seperti, metode Newton-Raphson untuk persamaan non-linier Dan metode eliminasi untuk persamaan linier. Berikut contoh program sederhana menggunakan
 
 ```Python:
@@ -66,7 +66,9 @@ Iterasi 2: x = 1.3478260869565217
 Iterasi 3: x = 1.325200398950907 
 Iterasi 4: x = 1.3247181739990537 
 Iterasi 5: x = 1.3247179572447898 
-Solusi ditemukan setelah 5 iterasi: x = 1.3247179572447898 
+Solusi ditemukan setelah 5 iterasi: x = 1.3247179572447898 ```
+```
+
 
 # 2. Penyederhanaan Persamaan Linier
 Persamaan linier yang diberikan adalah:
@@ -76,9 +78,10 @@ Persamaan linier yang diberikan adalah:
 x = 6
 Jadi, solusi persamaan linier ini adalah x = 6.
 
-Solusi
+# Solusi
 Persamaan linear dapat dipecahkan secara langsung tanpa menggunakan metode iteratif karena ini adalah persamaan linear sederhana. Berikut adalah implementasi dalam Python:
 
+```
 def solve_linear_equation(coef, constant):
 # Persamaan linear: coef * x = constant
 x = constant / coef
