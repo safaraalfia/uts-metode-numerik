@@ -1,99 +1,56 @@
-# UTS Metode Numerik
-Dosen Pengampuh : Anggay Luri Pramana,M.Kom
+# Soal
+Carilah solusi dua persamaan berikut
 
-# Penulis :
-Nama : Alfia Rohmah Safara 
-Kelas : Tiff22A (Pagi) 
-NIM : 23422039 
-
-# Soal :
-Persamaan Non Linier
-3 + x³ - x = 4
-Persamaan Linier
-2x - 4 = 8
-
-Intruksi :
-Carilah Solusi dari 2 soal diatas (metode bebas)
-Buatlah Program untuk mencari solusi diatas
-Dan tunjukkan nilai x di setiap iterasinya
-
-# 1. Penyederhanaan Persamaan Non Linier
-Persamaan non linier yang diberikan adalah:
-3 + x³ - x = 4
-3 + x³ - x - 4 = 0
-x³ - x + 3 - 4 = 0
-x³ - x - 1 = 0 atau
-x³ - x = 1
-
-# Solusi :
-Untuk mencari solusi dari persamaan non-linier tersebut, Anda dapat menggunakan metode iteratif seperti, metode Newton-Raphson untuk persamaan non-linier Dan metode eliminasi untuk persamaan linier. Berikut contoh program sederhana menggunakan Python:
-
-def fungsi_non_linier(x):
-    return x**3 - x + 3 - 4
-	
-def turunan_fungsi_non_linier(x):
-    return 3*x**2 - 1
-
-def metode_newton_raphson(x0, toleransi, maks_iter):
-    iterasi = 1
-    while iterasi <= maks_iter:
-          x1 = x0 - fungsi_non_linier(x0) / turunan_fungsi_non_linier(x0)
-          print(f'Iterasi {iterasi}: x = {x1}')
-
-	  if abs(x1 - x0) < toleransi:
-	     print(f'Solusi ditemukan setelah {iterasi} iterasi: x = {x1}')
-	     return x1
-
-	     x0 = x1
-	     iterasi += 1
-
-	  print('Iterasi maksimum tercapai. Metode Newton-Raphson tidak konvergen.')
-	  return None
-
-# Tentukan nilai awal, toleransi, dan maksimum iterasi
-x0 = 1.0
-toleransi = 1e-6
-maks_iter = 100
-
-# Panggil fungsi untuk metode Newton-Raphson
-solusi = metode_newton_raphson(x0, toleransi, maks_iter)
-Output:
-
-Iterasi 1: x = 1.5 
-Iterasi 2: x = 1.3478260869565217 
-Iterasi 3: x = 1.325200398950907 
-Iterasi 4: x = 1.3247181739990537 
-Iterasi 5: x = 1.3247179572447898 
-Solusi ditemukan setelah 5 iterasi: x = 1.3247179572447898 
-
-# 2. Penyederhanaan Persamaan Linier
-Persamaan linier yang diberikan adalah:
-2x - 4 = 8
-2x = 8 + 4
-2x = 12
-x = 6
-Jadi, solusi persamaan linier ini adalah x = 6.
+1. 3 + x^3 - x = 4
+2. 2x - 4 = 8
 
 # Solusi
-Persamaan linear dapat dipecahkan secara langsung tanpa menggunakan metode iteratif karena ini adalah persamaan linear sederhana. Berikut adalah implementasi dalam Python:
+1. Untuk mencari solusi persamaan non-linear 3 + x^3 - x = 4 dapat menggunakan metode numerik seperti metode Newton-Raphson.
+Berikut implementasi dalam Phyton untuk mencari persamaan ini:
 
-def solve_linear_equation(coef, constant):
-# Persamaan linear: coef * x = constant
-x = constant / coef
-return x
+def fungsi(x):
+def f(x):
+    return 3 + x**3 - x - 4
 
-# Koefisien persamaan
-coef = 2
+def f_prime(x):
+    return 3*x**2 - 1
 
-# Konstanta persamaan
-constant = 8 + 4  # Sisi kanan persamaan dipindahkan ke sisi kiri dengan menggabungkan konstanta
+def newton_raphson(initial_guess, tolerance=1e-6, max_iterations=100):
+    x = initial_guess
+    for i in range(max_iterations):
+        x_next = x - f(x) / f_prime(x)
+        if abs(x_next - x) < tolerance:
+            return x_next
+        x = x_next
+    return None  # Return None if the method doesn't converge within the specified iterations
 
-# Panggil fungsi untuk menyelesaikan persamaan linear
-solusi = solve_linear_equation(coef, constant)
+# Menggunakan metode Newton-Raphson dengan tebakan awal x=1
+result = newton_raphson(initial_guess=1)
+
+if result is not None:
+    print(f"Solusi persamaan adalah x = {result}")
+else:
+    print("Metode tidak konvergen dalam iterasi maksimum yang ditentukan.")
+    
+Output:
+
+Solusi persamaan adalah x = 1.3247179572447898
+
+2. Persamaan linear 2x − 4 = 8 dapat dipecahkan dengan mudah tanpa memerlukan metode numerik seperti Newton-Raphson.
+Berikut implementasi dalam Python untuk mencari persamaan ini:
+
+# Definisikan persamaan linear
+def persamaan_linear(x):
+    return 2*x - 4
+
+# Tentukan nilai sebelah kanan persamaan
+sebelah_kanan = 8
+
+# Hitung nilai x
+x = (sebelah_kanan + 4) / 2
 
 # Cetak solusi
-print(f"Solusi persamaan 2x - 4 = 8 adalah x = {solusi}")
+print("Solusi persamaan: x =", x)
 
-Output :
-
-Solusi persamaan 2x - 4 = 8 adalah x = 6.0
+Output:
+Solusi persamaan: x = 6.0
